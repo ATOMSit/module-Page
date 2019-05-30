@@ -1,9 +1,50 @@
-@extends('page::layouts.master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Novi Builder</title>
 
-@section('content')
-    <h1>Hello World</h1>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-    <p>
-        This view is loaded from module: {!! config('page.name') !!}
-    </p>
-@stop
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="{{asset('builder/css/style.css')}}">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900%7CRoboto:500,400,100,300,600' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<input type="text" id="test" value="{{$path}}">
+<!-- Novi Builder -->
+<div id="builder"></div>
+
+<!-- Emmet -->
+<script src="{{asset('builder/js/code-editor/emmet.js')}}"></script>
+<script src="{{asset('builder/js/code-editor/ace/ace.js')}}"></script>
+<script src="{{asset('builder/js/code-editor/ace/ext-emmet.js')}}"></script>
+
+<script type="application/javascript">
+    var isCookieEnabled, scriptTag, id;
+    isCookieEnabled = navigator.cookieEnabled;
+    id = "";
+    scriptTag = document.createElement("script");
+
+    if (isCookieEnabled) {
+        if (getCookie("justupdated")) {
+            id = "?" + new Date().getTime();
+        }
+    }
+
+    scriptTag.setAttribute("src", "{{asset('builder/js/builder.min.js')}}" + id);
+    document.body.appendChild(scriptTag);
+
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+</script>
+</body>
+</html>

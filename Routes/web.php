@@ -24,6 +24,8 @@ Route::prefix('page')->group(function () {
             echo "La copie $file du fichier a échoué...\n";
         }
 
+        chmod($path . '/index.html',0777);
+
         $path = "storage/websites/" . app(\Hyn\Tenancy\Environment::class)->website()->uuid . "-website";
         return view('page::index')
             ->with('path', $path);

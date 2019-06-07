@@ -12,22 +12,33 @@
 */
 
 Route::prefix('page')->group(function () {
-    Route::get('/', function () {
-
-        $path = storage_path() . '/app/public/websites/' . app(\Hyn\Tenancy\Environment::class)->website()->uuid . '-website/template';
-
-
-        $file = '/var/www/atomsit/modules/Page/Resources/views/themes/beer/index.html';
-
-
-        if (!copy($file, $path . '/index.html')) {
-            echo "La copie $file du fichier a échoué...\n";
+    Route::get('/create', function () {
+        $structure = '/var/www/atomsit/public/admin/page/projects/website_' . app(\Hyn\Tenancy\Environment::class)->website()->uuid;
+        if (!is_dir($structure) === true) {
+            if (!mkdir($structure, 0777, true)) {
+                return ('Echec lors de la création des répertoires...');
+            }
         }
 
-        chmod($path . '/index.html',0777);
+        $array = ([
+            "demoMode" => false,
+            "project" => "website_" . app(\Hyn\Tenancy\Environment::class)->website()->uuid,
+            "mode" => 1,
+            "showIntroduction" => false,
+            "jets" => true,
+            "checkForUpdates" => false,
+            "lang" => "en",
+            "enableAuthorization" => false,
+            "updateServers" => [
+                "//update.novibuilder.com"
+            ]
+        ]);
+        $file = '/var/www/atomsit/public/admin/page/config/website_' . app(\Hyn\Tenancy\Environment::class)->website()->uuid . '.json';
+        $fp = fopen($file, 'w');
+        fwrite($fp, json_encode($array));
+        fclose($fp);
 
-        $path = "storage/websites/" . app(\Hyn\Tenancy\Environment::class)->website()->uuid . "-website";
         return view('page::index')
-            ->with('path', $path);
+            ->with('website_id', app(\Hyn\Tenancy\Environment::class)->website()->uuid);
     });
 });

@@ -11,18 +11,19 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
     <!-- Stylesheets-->
-    <link rel="stylesheet" href="{{asset('builder/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/page/css/style.css')}}">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900%7CRoboto:500,400,100,300,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<input type="text" id="test" value="{{$path}}">
-<!-- Novi Builder -->
+
+<input type="text" id="website_id" value="website_{{$website_id}}">
+
 <div id="builder"></div>
 
 <!-- Emmet -->
-<script src="{{asset('builder/js/code-editor/emmet.js')}}"></script>
-<script src="{{asset('builder/js/code-editor/ace/ace.js')}}"></script>
-<script src="{{asset('builder/js/code-editor/ace/ext-emmet.js')}}"></script>
+<script src="{{asset('admin/page/js/code-editor/emmet.js')}}"></script>
+<script src="{{asset('admin/page/js/code-editor/ace/ace.js')}}"></script>
+<script src="{{asset('admin/page/js/code-editor/ace/ext-emmet.js')}}"></script>
 
 <script type="application/javascript">
     var isCookieEnabled, scriptTag, id;
@@ -36,7 +37,7 @@
         }
     }
 
-    scriptTag.setAttribute("src", "{{asset('builder/js/builder.min.js')}}" + id);
+    scriptTag.setAttribute("src", "{{asset('admin/page/js/builder.min.js')}}" + id);
     document.body.appendChild(scriptTag);
 
     function getCookie(name) {

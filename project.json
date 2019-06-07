@@ -1,0 +1,284 @@
+{
+  "presets": [
+    {
+      "title": "Header Classic",
+      "category": "header",
+      "reload": true,
+      "path": "header-classic.html",
+      "preview": "elements\/header-classic.jpg",
+      "id": 0,
+      "element": []
+    }
+  ],
+  "name": "Balck Bear Bar",
+  "dir": "..\/..\/admin\/page\/projects\/website_b594c009f67548cfad97e00a86f9a935\/",
+  "pages": [
+    {
+      "path": "index.html",
+      "index": true,
+      "isActive": true,
+      "title": "Home",
+      "preview": "novi\/pages\/index.jpg"
+    }
+  ],
+  "files": [],
+  "readOnlyFiles": [],
+  "publishPath": "..\/..\/admin\/page\/final\/website_b594c009f67548cfad97e00a86f9a935\/",
+  "disablePublishPromt": false,
+  "layers": [
+    {
+      "name": "Sections",
+      "element": "header, footer, section",
+      "canBeInsertedTo": ".page"
+    },
+    {
+      "name": "Grid Column",
+      "element": ".range=>not(.range-fix) > [class*=\"cell-\"]",
+      "canBeInsertedTo": ".range=>not(.range-fix)"
+    },
+    {
+      "name": "Order List",
+      "element": "ol=>not(.list-fix) > li",
+      "canBeInsertedTo": "ol=>not(.list-fix)"
+    },
+    {
+      "name": "Unorder List",
+      "element": "ul=>not(.list-fix) > li",
+      "canBeInsertedTo": "ul=>not(.list-fix)"
+    },
+    {
+      "name": "Description List",
+      "element": "dl=>not(.list-fix) > dt, dl=>not(.list-fix) > dd",
+      "canBeInsertedTo": "dl=>not(.list-fix)"
+    },
+    {
+      "name": "Timeline",
+      "element": ".timeline > .timeline-date, .timeline > .timeline-item",
+      "canBeInsertedTo": ".timeline"
+    },
+    {
+      "name": "Gallery item",
+      "element": ".row=>not(.row-fix) > [class*=\"col-\"]",
+      "canBeInsertedTo": ".row=>not(.row-fix)"
+    },
+    {
+      "name": "Accordion",
+      "element": ".card-group-custom > .card",
+      "canBeInsertedTo": ".card-group-custom"
+    },
+    {
+      "name": "Group",
+      "element": "[class*=group-]=>not(.group-fix) > *",
+      "canBeInsertedTo": "[class*=group-]=>not(.group-fix)"
+    },
+    {
+      "name": "Article",
+      "element": ".article-wrap > .article",
+      "canBeInsertedTo": ".article-wrap"
+    },
+    {
+      "name": "Post",
+      "element": ".post-wrap > .post, .post-wrap > .post-modern-timeline-date",
+      "canBeInsertedTo": ".post-wrap"
+    }
+  ],
+  "iconFonts": [
+    {
+      "family": "Material Design Icons",
+      "default": false
+    },
+    {
+      "family": "fl-budicons-free",
+      "default": true,
+      "cssPath": "fonts\/flbudiconsfree\/fl-budicons-free.css"
+    }
+  ],
+  "plugins": [
+    {
+      "name": "novi-plugin-background-image",
+      "settings": {
+        "querySelector": ".novi-bg-img",
+        "childQuerySelector": ".novi-bg-img"
+      }
+    },
+    {
+      "name": "novi-plugin-background",
+      "settings": {
+        "querySelector": ".novi-bg"
+      }
+    },
+    {
+      "name": "novi-plugin-camera-slider",
+      "settings": {
+        "querySelector": ".camera_wrap"
+      }
+    },
+    {
+      "name": "novi-plugin-campaign-monitor",
+      "settings": {
+        "querySelector": "[class*=\"campaign-mailform\"]"
+      }
+    },
+    {
+      "name": "novi-plugin-icon-manager",
+      "settings": {
+        "querySelector": ".novi-icon"
+      }
+    },
+    {
+      "name": "novi-plugin-image",
+      "settings": {
+        "querySelector": "img[src]"
+      }
+    },
+    {
+      "name": "novi-plugin-google-map",
+      "settings": {
+        "querySelector": ".google-map-container"
+      }
+    },
+    {
+      "name": "novi-plugin-iframe",
+      "settings": {
+        "querySelector": "iframe[src]"
+      }
+    },
+    {
+      "name": "novi-plugin-label",
+      "settings": {
+        "querySelector": "label"
+      }
+    },
+    {
+      "name": "novi-plugin-material-parallax",
+      "settings": {
+        "querySelector": ".parallax-container"
+      }
+    },
+    {
+      "name": "novi-plugin-link",
+      "settings": {
+        "querySelector": "a[href]",
+        "favoriteLinks": [
+          {
+            "title": "",
+            "value": ""
+          }
+        ],
+        "applyToProjectElements": true
+      }
+    },
+    {
+      "name": "novi-plugin-mailchimp",
+      "settings": {
+        "querySelector": "[class*=\"mailchimp-mailform\"]"
+      }
+    },
+    {
+      "name": "novi-plugin-owl-carousel",
+      "settings": {
+        "querySelector": ".owl-carousel",
+        "childQuerySelector": ".owl-carousel .owl-item > *"
+      }
+    },
+    {
+      "name": "novi-plugin-rd-facebook",
+      "settings": {
+        "querySelector": ".facebook"
+      }
+    },
+    {
+      "name": "novi-plugin-rd-twitterfeed",
+      "settings": {
+        "querySelector": ".twitter"
+      }
+    },
+    {
+      "name": "novi-plugin-rd-instafeed",
+      "settings": {
+        "querySelector": ".instafeed"
+      }
+    },
+    {
+      "name": "novi-plugin-light-gallery",
+      "settings": {
+        "groupQuerySelector": "[data-lightgallery=\"group\"]",
+        "albumQuerySelector": "[data-lightgallery=\"dynamic\"]",
+        "childQuerySelector": "[data-lightgallery=\"item\"]",
+        "querySelector": "[data-lightgallery=\"group\"], [data-lightgallery=\"dynamic\"], [data-lightgallery=\"item\"]"
+      }
+    },
+    {
+      "name": "novi-plugin-rd-mailform",
+      "settings": {
+        "querySelector": ".rd-mailform",
+        "configLocation": "bat\/rd-mailform.config.json"
+      }
+    },
+    {
+      "name": "novi-plugin-vide",
+      "settings": {
+        "querySelector": ".novi-vide"
+      }
+    },
+    {
+      "name": "novi-plugin-swiper-slider",
+      "settings": {
+        "querySelector": ".swiper-container",
+        "effects": [
+          {
+            "label": "Slide",
+            "value": "slide",
+            "clearableValue": false
+          },
+          {
+            "label": "Fade",
+            "value": "fade",
+            "clearableValue": false
+          }
+        ]
+      }
+    }
+  ],
+  "mediaDir": "images\/",
+  "videoDir": "video\/",
+  "fontDir": "fonts\/",
+  "cssDir": "css\/",
+  "codeEditor": {
+    "cssFile": null,
+    "jsFile": null
+  },
+  "pageContainer": ".page",
+  "mediaLibrary": {
+    "items": [],
+    "categories": []
+  },
+  "googleFonts": {
+    "Changa One": {
+      "category": "display",
+      "subsets": [],
+      "variants": [
+        "400",
+        "400i"
+      ]
+    },
+    "Grand Hotel": {
+      "category": "handwriting",
+      "subsets": [],
+      "variants": [
+        "400"
+      ]
+    },
+    "Lato": {
+      "category": "sans-serif",
+      "subsets": [],
+      "variants": [
+        "300",
+        "400",
+        "400italic",
+        "700"
+      ]
+    }
+  },
+  "basicTemplate": "<!DOCTYPE html>\r\n<html class=\"wide wow-animation smoothscroll\" lang=\"en\">\r\n<head>     <!-- Site Title--> <title>Sandwiches<\/title>\r\n\t<meta name=\"format-detection\" content=\"telephone=no\">\r\n\t<meta name=\"viewport\"\r\n\t\t\t\tcontent=\"width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">\r\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n\t<meta charset=\"utf-8\">\r\n\t<link rel=\"icon\" href=\"images\/favicon.ico\" type=\"image\/x-icon\">     <!-- Stylesheets-->\r\n\t<link rel=\"stylesheet\" type=\"text\/css\"\r\n\t\t\t\thref=\"\/\/fonts.googleapis.com\/css?family=Changa+One=>400,400i%7CGrand+Hotel%7CLato=>300,400,400italic,700\">\r\n\t<link rel=\"stylesheet\" href=\"css\/style.css\">\r\n\t<!--[if lt IE 10]>\r\n\t<div\r\n\t\t\tstyle=\"background=> #212121; padding=> 10px 0; box-shadow=> 3px 3px 5px 0 rgba(0,0,0,.3); clear=> both; text-align=>center; position=> relative; z-index=>1;\">\r\n\t\t<a href=\"http=>\/\/windows.microsoft.com\/en-US\/internet-explorer\/\"><img src=\"images\/ie8-panel\/warning_bar_0000_us.jpg\"\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t border=\"0\" height=\"42\" width=\"820\"\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t alt=\"You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.\"><\/a>\r\n\t<\/div>\r\n\t<script src=\"js\/html5shiv.min.js\"><\/script>   <![endif]-->   <\/head>\r\n<body>     <!-- Page-->\r\n<div class=\"page text-center\">\r\n\r\n<\/div>     <!-- Global Mailform Output-->\r\n<div class=\"snackbars\" id=\"form-output-global\"><\/div>     <!-- Java script-->\r\n<script src=\"js\/core.min.js\"><\/script>\r\n<script src=\"js\/script.js\"><\/script>\r\n<\/body>\r\n<\/html>"
+}

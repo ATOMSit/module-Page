@@ -3,9 +3,9 @@
 namespace Modules\Page\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use Modules\Page\Database\Seeders\TenantDatabaseSeeder\PageDatabaseSeeder;
 
-class PageDatabaseSeeder extends Seeder
+class TenantPageDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,6 @@ class PageDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        // $this->call("OthersTableSeeder");
+        $this->call(PageDatabaseSeeder::class);
     }
 }

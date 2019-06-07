@@ -6,6 +6,7 @@ use DiDom\Document;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Page\Entities\Page;
 use Sunra\PhpSimple\HtmlDomParser;
 
@@ -61,7 +62,7 @@ class PageController extends Controller
         $pages = Page::all();
         foreach ($pages as $page) {
             $file_origin = __DIR__ . '/../../Resources/views/themes/beer/index.html';
-            $file_copy = __DIR__ . '/../../../../public/admin/page/projects/website_' . $this->website_uuid . '/' . $page->id . '.html';
+            $file_copy = __DIR__ . '/../../../../public/admin/page/projects/website_' . $this->website_uuid . '/atomsitID' . $page->id . '.html';
             if (!copy($file_origin, $file_copy)) {
                 echo "La copie $file_origin du fichier a échoué...\n";
             }
@@ -76,10 +77,10 @@ class PageController extends Controller
             fwrite($fp, $html);
             fclose($fp);
             $new_page = array(
-                'path' => $page->id . '.html',
+                'path' => 'atomsitID' . $page->id . '.html',
                 'index' => true,
                 'isActive' => true,
-                'title' => 'Home',
+                'title' => $page->title,
                 'preview' => 'novi/pages/index.jpg',
             );
             array_push($array, $new_page);
@@ -1249,16 +1250,30 @@ class PageController extends Controller
         $file_project = '/var/www/atomsit/public/admin/page/projects/website_' . $this->website_uuid . '/project.json';
         $array_project = json_decode(file_get_contents($file_project, true), true);
         foreach ($array_project['pages'] as $page) {
-            $id = basename($page['path'], '.html');
-            $file_copy = __DIR__ . '/../../../../public/admin/page/projects/website_' . $this->website_uuid . '/' . $page['path'];
-            $content = file_get_contents($file_copy, true);
-            $html = HtmlDomParser::str_get_html($content);
-            $html->find('body[id=atomsit]', 0);
-            $db_page = Page::findOrFail($id);
-            $db_page->update([
-                'body' => $html
-            ]);
-            $db_page->save();
+            if (strpos($page['path'], 'atomsitID') !== false) {
+                $id = basename(str_replace('atomsitID', '', $page['path']), '.html');
+                $file_copy = __DIR__ . '/../../../../public/admin/page/projects/website_' . $this->website_uuid . '/' . $page['path'];
+                $content = file_get_contents($file_copy, true);
+                $html = HtmlDomParser::str_get_html($content);
+                $html->find('body[id=atomsit]', 0);
+                $db_page = Page::findOrFail($id);
+                $db_page->update([
+                    'body' => $html
+                ]);
+                $db_page->save();
+            } else {
+                $user = Auth::user();
+                $file_copy = __DIR__ . '/../../../../public/admin/page/projects/website_' . $this->website_uuid . '/' . $page['path'];
+                $content = file_get_contents($file_copy, true);
+                $html = HtmlDomParser::str_get_html($content);
+                $html->find('body[id=atomsit]', 0);
+                $db_page = new Page([
+                    'title' => $page['title'],
+                    'slug' => $page['title'],
+                    'body' => $html
+                ]);
+                $db_page->author()->associate($user)->save();
+            }
         }
     }
 

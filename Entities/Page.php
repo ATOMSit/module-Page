@@ -7,17 +7,19 @@ use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Page extends Model
+class Page extends Model implements HasMedia
 {
-    use UsesTenantConnection, EloquentTentacle,SoftDeletes;
+    use UsesTenantConnection, EloquentTentacle, SoftDeletes, HasMediaTrait;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table='page__pages';
+    protected $table = 'page__pages';
 
     /**
      * The attributes that are mass assignable.

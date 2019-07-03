@@ -8,7 +8,7 @@
     <meta charset="utf-8"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Changa+One:400,400i%7CGrand+Hotel%7CLato:300,400,400italic,700"/>
-    <link rel="stylesheet" href="../../../../themes/bar/css/style.css"/>
+    <link rel="stylesheet" href="{{asset('themes/bar/css/style.css')}}"/>
     <!--[if lt IE 10]>
     <div style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
         <a href='http://windows.microsoft.com/en-US/internet-explorer/'>
@@ -16,12 +16,12 @@
                  alt='You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.'>
         </a>
     </div>
-    <script src='../../../../themes/bar/js/html5shiv.min.js'></script>
+    <script src="{{asset('themes/bar/js/html5shiv.min.js')}}"></script>
     <![endif]-->
-    <script src="../../../../themes/bar/js/core.min.js"></script>
-    <script src="../../../../themes/bar/js/script.js"></script>
+    <script src="{{asset('themes/bar/js/core.min.js')}}"></script>
+    <script src="{{asset('themes/bar/js/script.js')}}"></script>
 </head>
-<body id="atomsit">
-
+<body id="atomsit_show">
+{!! $content !!}
 </body>
 </html>
